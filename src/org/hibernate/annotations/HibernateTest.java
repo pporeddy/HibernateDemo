@@ -13,7 +13,7 @@ public class HibernateTest {
 	 */
 	public static void main(String[] args) {
 
-		UserDetails user = new UserDetails();
+		UserDetailsAnnotations user = new UserDetailsAnnotations();
 		user.setUseId(1);
 		user.setName("Sai");
 		user.setJoinDate(new Date());
@@ -33,7 +33,7 @@ public class HibernateTest {
 		// No need of creating session factory again it should be created once { its resource intense}
 		
 		session= sessionfactory.openSession();
-		user = (UserDetails) session.get(UserDetails.class, 1);
+		user = (UserDetailsAnnotations) session.get(UserDetailsAnnotations.class, 1);
 		System.out.println("User Name : "+user.getName());
 	}
 

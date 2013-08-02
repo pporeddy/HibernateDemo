@@ -16,8 +16,8 @@ import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 
 @Entity // Entity name will be default {class name}, we use entity name in HQL
-@Table (name="USER_DETAILS") // This annotation used to set Table name {The name of table in entity}
-public class UserDetails {
+@Table (name="USER_DETAILS_ANNOTATIONS") // This annotation used to set Table name {The name of table in entity}
+public class UserDetailsAnnotations {
 	@Id // Primary key in the table
 	// Annotations can be kept at getter as Hibernate use getter to take value 
 	private int useId;	
