@@ -20,13 +20,17 @@
 <property name="hbm2ddl.auto">create </property>
 <!-- Related to hibernate properties END-->
  
-<!-- Related to mapping START -->
+<!-- Related to mapping START 
 
 <mapping class="org.hibernate.proxyobjects.UserDetailsProxyObjects"/> 
 <mapping class="org.hibernate.collections.UserDetailsCollections"/> 
 <mapping class="org.hibernate.annotations.UserDetailsAnnotations"/> 
 <mapping class="org.hibernate.primarykey.UserDetailsPrimaryKey"/>
-<mapping class="org.hibernate.embedded_object.UserDetailsEmbedded_Object"/> 
+<mapping class="org.hibernate.embedded_object.UserDetailsEmbedded_Object"/> -->
+<mapping class="org.hibernate.one2one.UserDetailsOne2One"/>
+<mapping class="org.hibernate.one2one.Vehicle"/>
+<mapping class="org.hibernate.one2many.UserDetailsOne2Many"/>
+<mapping class="org.hibernate.one2many.Vehicle"/>
 
 <!-- <mapping resource="hbm file 1 name .xml" / >
 <mapping resource="hbm file 2 name .xml" / > -->
