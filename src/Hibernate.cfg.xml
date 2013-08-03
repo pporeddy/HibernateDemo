@@ -20,8 +20,9 @@
 <property name="hbm2ddl.auto">create </property>
 <!-- Related to hibernate properties END-->
  
-<!-- Related to mapping START-->
+<!-- Related to mapping START -->
 
+<mapping class="org.hibernate.proxyobjects.UserDetailsProxyObjects"/> 
 <mapping class="org.hibernate.collections.UserDetailsCollections"/> 
 <mapping class="org.hibernate.annotations.UserDetailsAnnotations"/> 
 <mapping class="org.hibernate.primarykey.UserDetailsPrimaryKey"/>
