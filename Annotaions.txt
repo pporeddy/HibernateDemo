@@ -1,0 +1,63 @@
+JPA Annotations
+
+@Entity  annotation marks this class as an entity.</p>
+@Table annotation specifies the table name where data of this entity is to be persisted. 
+	If you don't use @Table annotation, hibernate will use the class name as the table name by default.
+@Id annotation marks the identifier for this entity.
+@Column annotation specifies the details of the column for this property or field. 
+	If @Column annotation is not specified, property name will be used as the column name by default.
+@GeneratedValue annotation is used to specify the primary key generation strategy to use. 
+	If the strategy is not specified by default AUTO will be used.
+@Basic annotation is the simplest type of mapping to a database column.
+@Temporal This annotation must be specified for persistent fields or properties of type Date and Calendar.
+	It may only be specified for fields or properties of these types. 
+	The Temporal annotation may be used in conjunction with the Basic annotation.
+@Transient Transient or static fields will not be persisted in database because they 
+	will be same for all objects. Specifies that the property or field is not persistent.
+@Lob Specifies that a persistent property or field should be persisted as a large object to a database-supported 
+	large object type.
+@ElementCollection Defines a collection of instances of a basic type or embeddable class. 
+	Must be specified if the collection is to be mapped by means of a collection table.
+@Embeddable Defines a class whose instances are stored as an intrinsic part of an owning entity and share the identity of the entity. 
+	Each of the persistent properties or fields of the embedded object is mapped to the database table for the entity.
+@Embedded Specifies a persistent field or property of an entity whose value is an instance of an embeddable class. 
+	The embeddable class must be annotated as Embeddable.The AttributeOverride, AttributeOverrides,  AssociationOverride, 
+	and AssociationOverrides annotations may be used to override mappings declared or defaulted by the embeddable class.
+@JoinTable Used in the mapping of associations. It is specified on the owning side of an association.
+	A join table is typically used in the mapping of many-to-many and unidirectional one-to-many associations. 
+	It may also be used to map bidirectional many-to-one/one-to-many associations, unidirectional many-to-one relationships, 
+	and one-to-one associations (both bidirectional and unidirectional). When a join table is used in mapping a relationship with an 
+	embeddable class on the owning side of the relationship, the containing entity rather than the embeddable class is considered the 
+	owner of the relationship. If the JoinTable annotation is missing, the default values of the annotation elements apply. The name of
+	the join table is assumed to be the table names of the associated primary tables concatenated together (owning side first) using an underscore.
+-inverseJoinColumns: The foreign key columns of the join table which reference the primary table of the entity that does not own the association
+-joinColumns: Defines mapping for composite foreign keys. This annotation groups JoinColumn annotations for the same relationship.
+	When the JoinColumns annotation is used, both the name and the referencedColumnName elements must be specified in each such JoinColumn annotation.
+@JoinColumn Specifies a column for joining an entity association or element collection. If the JoinColumn annotation itself is defaulted, 
+	a single join column is assumed and the default values apply.
+@OneToOne Defines a single-valued association to another entity that has one-to-one multiplicity. It is not normally necessary to specify the associated 
+	target entity explicitly since it can usually be inferred from the type of the object being referenced. If the relationship is bidirectional, 
+	the non-owning side must use the mappedBy element of the OneToOne annotation to specify the relationship field or property of the owning side.
+	The OneToOne annotation may be used within an embeddable class to specify a relationship from the embeddable class to an entity class. 
+	If the relationship is bidirectional and the entity containing the embeddable class is on the owning side of the relationship, 
+	the non-owning side must use the  mappedBy element of the OneToOne annotation to specify the relationship field or property of the embeddable class. 
+	The dot (".") notation syntax must be used in the  mappedBy element to indicate the relationship attribute within the embedded attribute. 
+	The value of each identifier used with the dot notation is the name of the respective embedded field or property.
+@OneToMany If the collection is defined using generics to specify the element type, the associated target entity type need not be specified; 
+	otherwise the target entity class must be specified. If the relationship is bidirectional, the   mappedBy element must be used to specify 
+	the relationship field or property of the entity that is the owner of the relationship. The OneToMany annotation may be used within an 
+	embeddable class contained within an entity class to specify a relationship to a collection of entities. If the relationship is bidirectional, 
+	the  mappedBy element must be used to specify the relationship field or property of the entity that is the owner of the relationship. 
+	When the collection is a java.util.Map, the cascade element and the orphanRemoval element apply to the map value.
+@ManyToOne Defines a single-valued association to another entity class that has many-to-one multiplicity. It is not normally necessary to specify the target 
+	entity explicitly since it can usually be inferred from the type of the object being referenced. If the relationship is bidirectional, the non-owning OneToMany 
+	entity side must used the  mappedBy element to specify the relationship field or property of the entity that is the owner of the relationship. The ManyToOne 
+	annotation may be used within an embeddable class to specify a relationship from the embeddable class to an entity class. If the relationship is bidirectional, 
+	the non-owning OneToMany entity side must use the mappedBy element of the OneToMany annotation to specify the relationship field or property of 
+	the embeddable field or property on the owning side of the relationship. The dot (".") notation syntax must be used in the mappedBy element to indicate 
+	the relationship attribute within the embedded attribute. The value of each identifier used with the dot notation is the name of the respective embedded field or property.	
+-----------------
+Hibernate Annotations
+
+@GenericGenerator
+@CollectionId

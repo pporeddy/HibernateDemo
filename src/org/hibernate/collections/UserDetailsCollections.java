@@ -6,14 +6,10 @@ package org.hibernate.collections;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashSet;
 import java.util.Set;
 
-import javax.persistence.AttributeOverride;
-import javax.persistence.AttributeOverrides;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
-import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -38,7 +34,7 @@ public class UserDetailsCollections {
 	private int useId;
 	// 
 	@ElementCollection
-	// Change the default name of the table.
+	// Change the default name of the table and also also column name.
 	@JoinTable (name="USER_ADDRESS",
 				joinColumns=@JoinColumn(name="USER_ID")
 				)
