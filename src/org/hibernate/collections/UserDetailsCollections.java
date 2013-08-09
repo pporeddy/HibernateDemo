@@ -36,13 +36,16 @@ public class UserDetailsCollections {
 	@ElementCollection
 	// Change the default name of the table and also also column name.
 	@JoinTable (name="USER_ADDRESS",
-				joinColumns=@JoinColumn(name="USER_ID")
-				)
-	// hilo is common generator hibernate uses
+				joinColumns=@JoinColumn(name="USER_ID") )
+	// hilo is common generator hibernate uses, 
+	//allows you to define an Hibernate specific id generator
 	@GenericGenerator(name = "hilo-gen", strategy = "hilo")
-	@CollectionId(columns = { @Column(name="ADRESS_ID") }, generator = "hilo-gen", type = @Type(type="long")) 
+	//@CollectionId is used to create a collection id. And that id will work as primary key.
+	//Bag collections id do efficiently removal and insertion of rows.
+	//We are creating primary key for address
+	@CollectionId(columns = { @Column(name="ADRESS_ID") }, 
+	generator = "hilo-gen", type = @Type(type="long")) 
 	private Collection<Address> listOfAdress = new ArrayList<>();
-	
 	
 	public int getUseId() {
 		return useId;

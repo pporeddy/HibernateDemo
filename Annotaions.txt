@@ -59,5 +59,5 @@ JPA Annotations
 -----------------
 Hibernate Annotations
 
-@GenericGenerator
-@CollectionId
+@GenericGenerator allows you to define an Hibernate specific id generator
+@CollectionId is used to create a collection id. And that id will work as primary key. Bag collections id do efficiently removal and insertion of rows.
